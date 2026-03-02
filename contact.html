@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | MedCare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-heartbeat"></i> MedCare
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="doctors.html">Doctors</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="symptoms.html">Symptom Checker</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="auth.html" class="btn btn-primary">Login</a>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 50px;">
+                    <h2>Get in Touch</h2>
+                    <p style="color: var(--text-muted);">We are here to help and answer any questions you might have.
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: start;">
+                    <div style="display: flex; flex-direction: column; gap: 30px;">
+                        <div class="card" style="border-left: 5px solid var(--accent-red);">
+                            <h3 style="color: var(--accent-red); margin-bottom: 10px;">Emergency Hotlines</h3>
+                            <p style="font-size: 1.2rem; font-weight: 700;">+1 (800) MED-HELP</p>
+                            <p style="font-size: 1.2rem; font-weight: 700;">+1 (123) 911-0000</p>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Available 24 hours
+                                a day, 7 days a week.</p>
+                        </div>
+
+                        <div class="card">
+                            <h3 style="margin-bottom: 20px;">Contact Information</h3>
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                                <i class="fas fa-map-marker-alt"
+                                    style="color: var(--primary-blue); font-size: 1.2rem; width: 25px;"></i>
+                                <span>123 Health St, Medical City, NY 10001</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                                <i class="fas fa-phone"
+                                    style="color: var(--primary-blue); font-size: 1.2rem; width: 25px;"></i>
+                                <span>+1 (123) 456-7890</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <i class="fas fa-envelope"
+                                    style="color: var(--primary-blue); font-size: 1.2rem; width: 25px;"></i>
+                                <span>support@medcare.com</span>
+                            </div>
+                        </div>
+
+                        <div
+                            style="border-radius: var(--radius-md); overflow: hidden; height: 300px; box-shadow: var(--shadow-soft);">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.119763973046!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1709355000000!5m2!1sen!2sin"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="margin-bottom: 30px;">Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Full Name</label>
+                                <input type="text" required
+                                    style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); outline: none;">
+                            </div>
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Email
+                                    Address</label>
+                                <input type="email" required
+                                    style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); outline: none;">
+                            </div>
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Subject</label>
+                                <input type="text" required
+                                    style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); outline: none;">
+                            </div>
+                            <div style="margin-bottom: 30px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Your
+                                    Message</label>
+                                <textarea rows="6" required
+                                    style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); outline: none; resize: none;"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px;">Send
+                                Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 20px;">
+                        <i class="fas fa-heartbeat"></i> MedCare
+                    </a>
+                    <p style="color: #ccc;">Providing premium healthcare services for over 10 years. Your health is our
+                        top priority.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="doctors.html">Our Doctors</a></li>
+                        <li><a href="booking.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Cardiology</a></li>
+                        <li><a href="#">Neurology</a></li>
+                        <li><a href="#">Pediatrics</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +1 (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@medcare.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Health St, Medical City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MedCare Healthcare. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Your message has been sent successfully! We will get back to you soon.');
+            e.target.reset();
+        });
+    </script>
+</body>
+
+</html>

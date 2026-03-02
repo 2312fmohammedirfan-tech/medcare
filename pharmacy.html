@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Pharmacy | MedCare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .pharmacy-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr 300px;
+            gap: 30px;
+        }
+
+        .filter-sidebar {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            height: fit-content;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-medium);
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 120px;
+            height: 120px;
+            background: #f8f9fa;
+            border-radius: var(--radius-sm);
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 3rem;
+        }
+
+        .badge-rx {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent-red);
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .cart-sidebar {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            height: fit-content;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .prescription-box {
+            background: var(--bg-light);
+            border: 2px dashed var(--primary-blue);
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-heartbeat"></i> MedCare
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="doctors.html">Doctors</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="symptoms.html">Symptom Checker</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="user-profile" style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-weight: 600;">John Doe</span>
+                    <i class="fas fa-shopping-cart"
+                        style="margin-left: 10px; color: var(--primary-blue); cursor: pointer;"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2>MedCare Online Pharmacy</h2>
+                <p style="color: var(--text-muted);">Trusted medicines delivered to your doorstep in 24 hours.</p>
+            </div>
+
+            <div class="pharmacy-grid">
+                <!-- Sidebar Filters -->
+                <aside class="filter-sidebar">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 20px;">Categories</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 12px;"><label
+                                style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input
+                                    type="checkbox" checked> Pain Relief</label></li>
+                        <li style="margin-bottom: 12px;"><label
+                                style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input
+                                    type="checkbox"> Vitamin & Wellness</label></li>
+                        <li style="margin-bottom: 12px;"><label
+                                style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input
+                                    type="checkbox"> First Aid</label></li>
+                        <li style="margin-bottom: 12px;"><label
+                                style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input
+                                    type="checkbox"> Baby Care</label></li>
+                        <li style="margin-bottom: 12px;"><label
+                                style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input
+                                    type="checkbox"> Skin Care</label></li>
+                    </ul>
+                </aside>
+
+                <!-- Products -->
+                <div>
+                    <div class="prescription-box">
+                        <i class="fas fa-file-prescription"
+                            style="font-size: 2rem; color: var(--primary-blue); margin-bottom: 10px;"></i>
+                        <h4>Upload Prescription</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Required for
+                            medicines marked with <span style="color: var(--accent-red); font-weight: 700;">Rx</span>
+                        </p>
+                        <input type="file" id="rxUpload" style="display: none;">
+                        <button class="btn btn-primary" onclick="document.getElementById('rxUpload').click()">Upload
+                            Now</button>
+                    </div>
+
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+                        <div class="product-card">
+                            <div class="product-image"><i class="fas fa-capsules"></i></div>
+                            <h4 style="margin-bottom: 5px;">Paracetamol 500mg</h4>
+                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px;">Strip of 10
+                                Tablets</p>
+                            <p style="font-weight: 700; color: var(--primary-blue);">$2.50</p>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 15px;"
+                                onclick="addToCart('Paracetamol', 2.50)">Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <span class="badge-rx">Rx</span>
+                            <div class="product-image"><i class="fas fa-tablets"></i></div>
+                            <h4 style="margin-bottom: 5px;">Amoxicillin 250mg</h4>
+                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px;">Antibiotic
+                                (Capsules)</p>
+                            <p style="font-weight: 700; color: var(--primary-blue);">$8.00</p>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 15px;"
+                                onclick="addToCart('Amoxicillin', 8.00)">Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image"><i class="fas fa-plus-square"></i></div>
+                            <h4 style="margin-bottom: 5px;">Multivitamins</h4>
+                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px;">Daily Wellness
+                                Pack</p>
+                            <p style="font-weight: 700; color: var(--primary-blue);">$15.00</p>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 15px;"
+                                onclick="addToCart('Multivitamins', 15.00)">Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image"><i class="fas fa-tint"></i></div>
+                            <h4 style="margin-bottom: 5px;">Vitamin C Drops</h4>
+                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px;">Immune Boost
+                                (30ml)</p>
+                            <p style="font-weight: 700; color: var(--primary-blue);">$12.00</p>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 15px;"
+                                onclick="addToCart('Vitamin C', 12.00)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shopping Cart -->
+                <aside class="cart-sidebar">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 20px;">Shopping Cart</h3>
+                    <div id="cartItems">
+                        <p style="color: var(--text-muted); font-size: 0.85rem; text-align: center;">Your cart is empty
+                        </p>
+                    </div>
+                    <div style="margin-top: 25px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                        <div
+                            style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 15px;">
+                            <span>Total</span>
+                            <span id="cartTotal">$0.00</span>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%;" onclick="checkout()">Checkout</button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let cart = [];
+        const cartItemsEl = document.getElementById('cartItems');
+        const cartTotalEl = document.getElementById('cartTotal');
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        function updateCart() {
+            if (cart.length === 0) {
+                cartItemsEl.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; text-align: center;">Your cart is empty</p>';
+                cartTotalEl.textContent = '$0.00';
+                return;
+            }
+
+            cartItemsEl.innerHTML = cart.map((item, index) => `
+                <div class="cart-item">
+                    <span>${item.name}</span>
+                    <span>$${item.price.toFixed(2)}</span>
+                </div>
+            `).join('');
+
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            cartTotalEl.textContent = `$${total.toFixed(2)}`;
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Please add items to your cart first!');
+                return;
+            }
+            alert('Order placed successfully! Order ID: #MED-' + Math.floor(Math.random() * 10000) + '\nYou will receive a confirmation email soon.');
+            cart = [];
+            updateCart();
+        }
+
+        document.getElementById('rxUpload').addEventListener('change', function () {
+            if (this.files && this.files[0]) {
+                alert('Prescription uploaded successfully: ' + this.files[0].name + '\nOur pharmacist will verify it within 1 hour.');
+            }
+        });
+    </script>
+</body>
+
+</html>

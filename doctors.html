@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Doctors | MedCare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-heartbeat"></i> MedCare
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="doctors.html">Doctors</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="symptoms.html">Symptom Checker</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="auth.html" class="btn btn-primary">Login</a>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" style="background: var(--primary-blue); color: white; padding: 60px 0;">
+            <div class="container" style="text-align: center;">
+                <h1 style="color: white; margin-bottom: 20px;">Our Medical Specialists</h1>
+                <p style="font-size: 1.1rem; opacity: 0.9;">Find the right doctor for your health needs</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <!-- Search and Filter -->
+                <div
+                    style="background: white; padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow-soft); margin-bottom: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; align-items: center;">
+                    <div>
+                        <label style="display: block; margin-bottom: 10px; font-weight: 600;">Search Doctor</label>
+                        <div style="position: relative;">
+                            <input type="text" id="doctorSearch" placeholder="Name or specialization..."
+                                style="width: 100%; padding: 12px 15px 12px 40px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); outline: none;">
+                            <i class="fas fa-search"
+                                style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 10px; font-weight: 600;">Specialization</label>
+                        <select id="specializationFilter"
+                            style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); outline: none;">
+                            <option value="all">All Specialties</option>
+                            <option value="Cardiologist">Cardiologist</option>
+                            <option value="Neurologist">Neurologist</option>
+                            <option value="Pediatrician">Pediatrician</option>
+                            <option value="Dentist">Dentist</option>
+                            <option value="Orthopedic">Orthopedic</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="doctorList"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <!-- Doctor Card 1 -->
+                    <div class="doctor-card card" data-specialty="Cardiologist" style="padding: 0; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=500"
+                            alt="Dr. Sarah Johnson" style="width: 100%; height: 250px; object-fit: cover;">
+                        <div style="padding: 20px;">
+                            <h3 style="margin-bottom: 5px;">Dr. Sarah Johnson</h3>
+                            <p style="color: var(--secondary-green); font-weight: 600; margin-bottom: 15px;">
+                                Cardiologist</p>
+                            <div
+                                style="display: flex; justify-content: space-between; margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem;">
+                                <span><i class="fas fa-briefcase-medical"></i> 12 yrs Exp</span>
+                                <span><i class="fas fa-star" style="color: #ffc107;"></i> 4.9</span>
+                            </div>
+                            <a href="booking.html" class="btn btn-primary" style="width: 100%; text-align: center;">Book
+                                Appointment</a>
+                        </div>
+                    </div>
+
+                    <!-- Doctor Card 2 -->
+                    <div class="doctor-card card" data-specialty="Neurologist" style="padding: 0; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&q=80&w=500"
+                            alt="Dr. Michael Chen" style="width: 100%; height: 250px; object-fit: cover;">
+                        <div style="padding: 20px;">
+                            <h3 style="margin-bottom: 5px;">Dr. Michael Chen</h3>
+                            <p style="color: var(--secondary-green); font-weight: 600; margin-bottom: 15px;">Neurologist
+                            </p>
+                            <div
+                                style="display: flex; justify-content: space-between; margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem;">
+                                <span><i class="fas fa-briefcase-medical"></i> 10 yrs Exp</span>
+                                <span><i class="fas fa-star" style="color: #ffc107;"></i> 4.8</span>
+                            </div>
+                            <a href="booking.html" class="btn btn-primary" style="width: 100%; text-align: center;">Book
+                                Appointment</a>
+                        </div>
+                    </div>
+
+                    <!-- Doctor Card 3 -->
+                    <div class="doctor-card card" data-specialty="Pediatrician" style="padding: 0; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=500"
+                            alt="Dr. Emily White" style="width: 100%; height: 250px; object-fit: cover;">
+                        <div style="padding: 20px;">
+                            <h3 style="margin-bottom: 5px;">Dr. Emily White</h3>
+                            <p style="color: var(--secondary-green); font-weight: 600; margin-bottom: 15px;">
+                                Pediatrician</p>
+                            <div
+                                style="display: flex; justify-content: space-between; margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem;">
+                                <span><i class="fas fa-briefcase-medical"></i> 8 yrs Exp</span>
+                                <span><i class="fas fa-star" style="color: #ffc107;"></i> 5.0</span>
+                            </div>
+                            <a href="booking.html" class="btn btn-primary" style="width: 100%; text-align: center;">Book
+                                Appointment</a>
+                        </div>
+                    </div>
+
+                    <!-- Doctor Card 4 -->
+                    <div class="doctor-card card" data-specialty="Dentist" style="padding: 0; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=500"
+                            alt="Dr. Robert Brown" style="width: 100%; height: 250px; object-fit: cover;">
+                        <div style="padding: 20px;">
+                            <h3 style="margin-bottom: 5px;">Dr. Robert Brown</h3>
+                            <p style="color: var(--secondary-green); font-weight: 600; margin-bottom: 15px;">Dentist</p>
+                            <div
+                                style="display: flex; justify-content: space-between; margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem;">
+                                <span><i class="fas fa-briefcase-medical"></i> 15 yrs Exp</span>
+                                <span><i class="fas fa-star" style="color: #ffc107;"></i> 4.7</span>
+                            </div>
+                            <a href="booking.html" class="btn btn-primary" style="width: 100%; text-align: center;">Book
+                                Appointment</a>
+                        </div>
+                    </div>
+
+                    <!-- Doctor Card 5 -->
+                    <div class="doctor-card card" data-specialty="Orthopedic" style="padding: 0; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=500"
+                            alt="Dr. James Wilson" style="width: 100%; height: 250px; object-fit: cover;">
+                        <div style="padding: 20px;">
+                            <h3 style="margin-bottom: 5px;">Dr. James Wilson</h3>
+                            <p style="color: var(--secondary-green); font-weight: 600; margin-bottom: 15px;">Orthopedic
+                            </p>
+                            <div
+                                style="display: flex; justify-content: space-between; margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem;">
+                                <span><i class="fas fa-briefcase-medical"></i> 9 yrs Exp</span>
+                                <span><i class="fas fa-star" style="color: #ffc107;"></i> 4.6</span>
+                            </div>
+                            <a href="booking.html" class="btn btn-primary" style="width: 100%; text-align: center;">Book
+                                Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 20px;">
+                        <i class="fas fa-heartbeat"></i> MedCare
+                    </a>
+                    <p style="color: #ccc;">Providing premium healthcare services for over 10 years. Your health is our
+                        top priority.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="doctors.html">Our Doctors</a></li>
+                        <li><a href="booking.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Cardiology</a></li>
+                        <li><a href="#">Neurology</a></li>
+                        <li><a href="#">Pediatrics</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +1 (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@medcare.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Health St, Medical City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MedCare Healthcare. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('doctorSearch');
+            const filterSelect = document.getElementById('specializationFilter');
+            const doctorCards = document.querySelectorAll('.doctor-card');
+
+            function filterDoctors() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedFilter = filterSelect.value;
+
+                doctorCards.forEach(card => {
+                    const name = card.querySelector('h3').textContent.toLowerCase();
+                    const specialty = card.getAttribute('data-specialty');
+
+                    const matchesSearch = name.includes(searchTerm) || specialty.toLowerCase().includes(searchTerm);
+                    const matchesFilter = selectedFilter === 'all' || specialty === selectedFilter;
+
+                    if (matchesSearch && matchesFilter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            searchInput.addEventListener('input', filterDoctors);
+            filterSelect.addEventListener('change', filterDoctors);
+        });
+    </script>
+</body>
+
+</html>

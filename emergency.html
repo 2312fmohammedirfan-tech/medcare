@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Care | MedCare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .sos-btn {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--accent-red);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+            animation: pulse-red 2s infinite;
+            border: 10px solid rgba(255, 255, 255, 0.2);
+            margin: 0 auto;
+            transition: var(--transition);
+        }
+
+        @keyframes pulse-red {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 30px rgba(220, 53, 69, 0);
+            }
+
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+            }
+        }
+
+        .sos-btn:active {
+            transform: scale(0.9);
+            background: #b02a37;
+        }
+
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .tracking-box {
+            background: #eee;
+            border-radius: var(--radius-md);
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+
+        .guide-card {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary-blue);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-heartbeat"></i> MedCare
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="doctors.html">Doctors</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="symptoms.html">Symptom Checker</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="user-profile" style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-weight: 600;">John Doe</span>
+                    <img src="https://i.pravatar.cc/150?u=john" alt="User"
+                        style="width: 35px; height: 35px; border-radius: 50%;">
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 style="color: var(--accent-red);">Emergency Response System</h2>
+                <p style="color: var(--text-muted);">Press the button below for instant ambulance dispatch and medical
+                    assistance.</p>
+            </div>
+
+            <div id="sosContainer">
+                <div class="sos-btn" id="sosBtn">
+                    <i class="fas fa-bell" style="margin-bottom: 10px;"></i>
+                    SOS
+                </div>
+                <p style="text-align: center; margin-top: 20px; font-weight: 600; color: var(--text-muted);"
+                    id="sosStatus">Tap to alert Emergency Services</p>
+            </div>
+
+            <div class="emergency-grid" id="trackingArea" style="display: none;">
+                <div class="tracking-box">
+                    <div style="text-align: center;">
+                        <i class="fas fa-map-marker-alt"
+                            style="font-size: 3rem; color: var(--accent-red); margin-bottom: 20px;"></i>
+                        <h4>Ambulance is En Route</h4>
+                        <p>Estimated Time: 7 Minutes</p>
+                        <div
+                            style="width: 250px; height: 10px; background: #ddd; border-radius: 10px; margin: 20px auto; overflow: hidden;">
+                            <div
+                                style="width: 40%; height: 100%; background: var(--secondary-green); animation: progress 7s infinite linear;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="emergency-info">
+                    <h3>First Aid Instructions</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">While you wait for help, please do the
+                        following:</p>
+                    <div class="guide-card">
+                        <h4>Stay Calm</h4>
+                        <p style="font-size: 0.9rem;">Keep the patient stationary and ensure they have plenty of air.
+                        </p>
+                    </div>
+                    <div class="guide-card">
+                        <h4>Clear the Way</h4>
+                        <p style="font-size: 0.9rem;">Move any furniture or obstacles to allow easy stretcher access.
+                        </p>
+                    </div>
+                    <div class="guide-card">
+                        <h4>Gather Information</h4>
+                        <p style="font-size: 0.9rem;">Prepare patient's medical history and current medications if
+                            possible.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                style="margin-top: 80px; text-align: center; padding: 40px; background: #fff5f5; border-radius: var(--radius-md); border: 2px dashed var(--accent-red);">
+                <h3>Call Direct Helpline</h3>
+                <p style="font-size: 2rem; font-weight: 800; color: var(--accent-red); margin: 15px 0;">+1 (800)
+                    MED-HELP</p>
+                <p style="color: var(--text-muted);">24/7 dedicated emergency line for critical situations.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const sosBtn = document.getElementById('sosBtn');
+        const sosStatus = document.getElementById('sosStatus');
+        const trackingArea = document.getElementById('trackingArea');
+
+        sosBtn.addEventListener('click', () => {
+            sosBtn.innerHTML = '<i class="fas fa-check"></i> SENT';
+            sosBtn.style.animation = 'none';
+            sosBtn.style.background = 'var(--secondary-green)';
+            sosStatus.textContent = 'Emergency services have been notified! Help is on the way.';
+            sosStatus.style.color = 'var(--secondary-green)';
+
+            setTimeout(() => {
+                trackingArea.style.display = 'grid';
+                trackingArea.scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>

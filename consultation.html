@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Consultation | MedCare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .video-container {
+            position: relative;
+            background: #1a1a1a;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .main-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .local-video {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 200px;
+            aspect-ratio: 16/9;
+            background: #333;
+            border: 2px solid white;
+            border-radius: var(--radius-sm);
+            z-index: 10;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 20;
+        }
+
+        .control-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .control-btn.end-call {
+            background: var(--accent-red);
+        }
+
+        .control-btn.muted {
+            background: var(--accent-red);
+        }
+
+        .consultation-sidebar {
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+        }
+
+        .message.doctor {
+            background: var(--bg-light);
+            padding: 10px 15px;
+            border-radius: 12px 12px 12px 0;
+            align-self: flex-start;
+        }
+
+        .message.patient {
+            background: var(--primary-blue);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 12px 12px 0 12px;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-heartbeat"></i> MedCare
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="doctors.html">Doctors</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="symptoms.html">Symptom Checker</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="user-profile" style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-weight: 600;">John Doe</span>
+                    <img src="https://i.pravatar.cc/150?u=john" alt="User"
+                        style="width: 35px; height: 35px; border-radius: 50%;">
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <div>
+                    <h2 style="margin-bottom: 5px;">Virtual Consultation</h2>
+                    <p style="color: var(--text-muted);"><i class="fas fa-circle"
+                            style="color: var(--secondary-green); font-size: 0.7rem;"></i> Connected with Dr. Sarah
+                        Johnson</p>
+                </div>
+                <div id="callTimer"
+                    style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); background: var(--bg-white); padding: 10px 20px; border-radius: var(--radius-sm); box-shadow: var(--shadow-soft);">
+                    00:00
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+                <!-- Video Area -->
+                <div class="video-container">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=1500"
+                        alt="Doctor Video" class="main-video">
+                    <div class="local-video">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=500"
+                            alt="Patient Video" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+                    </div>
+                    <div class="video-controls">
+                        <div class="control-btn" id="micBtn"><i class="fas fa-microphone"></i></div>
+                        <div class="control-btn" id="camBtn"><i class="fas fa-video"></i></div>
+                        <div class="control-btn end-call" onclick="window.location.href='index.html'"><i
+                                class="fas fa-phone-slash"></i></div>
+                    </div>
+                </div>
+
+                <!-- Chat Sidebar -->
+                <div class="consultation-sidebar">
+                    <div style="padding: 20px; border-bottom: 1px solid var(--border-color);">
+                        <h3 style="font-size: 1.1rem; margin: 0;">Consultation Chat</h3>
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message doctor">
+                            Hello John, I've reviewed your symptoms. How are you feeling today?
+                        </div>
+                    </div>
+                    <div style="padding: 20px; border-top: 1px solid var(--border-color); display: flex; gap: 10px;">
+                        <input type="text" id="chatInput" placeholder="Type a message..."
+                            style="flex: 1; border: 1px solid var(--border-color); padding: 10px; border-radius: var(--radius-sm); outline: none;">
+                        <button id="sendMsgBtn" class="btn btn-primary" style="padding: 10px 15px;"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes Section -->
+            <div class="card" style="margin-top: 30px;">
+                <h3>Doctor's Shared Notes</h3>
+                <ul style="margin-top: 15px; color: var(--text-muted);">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"
+                            style="color: var(--secondary-green);"></i> Blood pressure looks normal in recent reports.
+                    </li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"
+                            style="color: var(--secondary-green);"></i> Suggested increasing daily water intake.</li>
+                    <li><i class="fas fa-spinner fa-spin"></i> Writing prescription for seasonal allergy...</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Timer Logic
+            let seconds = 0;
+            const timerEl = document.getElementById('callTimer');
+            setInterval(() => {
+                seconds++;
+                let mins = Math.floor(seconds / 60);
+                let secs = seconds % 60;
+                timerEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }, 1000);
+
+            // Chat Logic
+            const chatMessages = document.getElementById('chatMessages');
+            const chatInput = document.getElementById('chatInput');
+            const sendBtn = document.getElementById('sendMsgBtn');
+
+            function sendMessage() {
+                const text = chatInput.value.trim();
+                if (text) {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = 'message patient';
+                    msgDiv.textContent = text;
+                    chatMessages.appendChild(msgDiv);
+                    chatInput.value = '';
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                    // Mock auto-reply
+                    setTimeout(() => {
+                        const replyDiv = document.createElement('div');
+                        replyDiv.className = 'message doctor';
+                        replyDiv.textContent = "I understand. Let me check that for you.";
+                        chatMessages.appendChild(replyDiv);
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }, 1500);
+                }
+            }
+
+            sendBtn.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') sendMessage();
+            });
+
+            // Control Buttons
+            const micBtn = document.getElementById('micBtn');
+            const camBtn = document.getElementById('camBtn');
+
+            micBtn.addEventListener('click', () => {
+                micBtn.classList.toggle('muted');
+                micBtn.innerHTML = micBtn.classList.contains('muted') ? '<i class="fas fa-microphone-slash"></i>' : '<i class="fas fa-microphone"></i>';
+            });
+
+            camBtn.addEventListener('click', () => {
+                camBtn.classList.toggle('muted');
+                camBtn.innerHTML = camBtn.classList.contains('muted') ? '<i class="fas fa-video-slash"></i>' : '<i class="fas fa-video"></i>';
+            });
+        });
+    </script>
+</body>
+
+</html>

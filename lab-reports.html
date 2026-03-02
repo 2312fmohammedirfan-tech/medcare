@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Reports | MedCare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .report-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .report-item:last-child {
+            border-bottom: none;
+        }
+
+        .report-item:hover {
+            background-color: var(--bg-light);
+        }
+
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-ready {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-heartbeat"></i> MedCare
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="doctors.html">Doctors</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="symptoms.html">Symptom Checker</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="user-profile" style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-weight: 600;">John Doe</span>
+                    <img src="https://i.pravatar.cc/150?u=john" alt="User"
+                        style="width: 35px; height: 35px; border-radius: 50%;">
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2>Your Laboratory Reports</h2>
+                <p style="color: var(--text-muted);">Access and download your medical test results securely.</p>
+            </div>
+
+            <div class="card" style="padding: 0; overflow: hidden;">
+                <div style="background: var(--primary-blue); color: white; padding: 15px 20px; font-weight: 600;">
+                    Recent Test Results
+                </div>
+                <div class="report-list">
+                    <div class="report-item">
+                        <div style="display: flex; gap: 20px; align-items: center;">
+                            <div
+                                style="width: 50px; height: 50px; background: #e7f1ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-blue);">
+                                <i class="fas fa-file-medical-alt" style="font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; color: var(--text-dark);">Complete Blood Count (CBC)</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Date: Mar 01, 2026 |
+                                    Dr. Sarah Johnson</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <span class="status-badge status-ready">Ready</span>
+                            <button class="btn btn-outline" style="padding: 8px 15px; font-size: 0.9rem;"
+                                onclick="downloadReport('CBC_Report_JohnDoe.pdf')">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="report-item">
+                        <div style="display: flex; gap: 20px; align-items: center;">
+                            <div
+                                style="width: 50px; height: 50px; background: #e7f1ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-blue);">
+                                <i class="fas fa-x-ray" style="font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; color: var(--text-dark);">Chest X-Ray</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Date: Feb 25, 2026 |
+                                    Dr. Michael Chen</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <span class="status-badge status-ready">Ready</span>
+                            <button class="btn btn-outline" style="padding: 8px 15px; font-size: 0.9rem;"
+                                onclick="downloadReport('XRay_Report_JohnDoe.pdf')">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="report-item">
+                        <div style="display: flex; gap: 20px; align-items: center;">
+                            <div
+                                style="width: 50px; height: 50px; background: #fff8e1; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffa000;">
+                                <i class="fas fa-microscope" style="font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; color: var(--text-dark);">Lipid Profile</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Date: Mar 02, 2026 |
+                                    Processing...</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <span class="status-badge status-pending">Pending</span>
+                            <button class="btn btn-outline"
+                                style="padding: 8px 15px; font-size: 0.9rem; opacity: 0.5; cursor: not-allowed;"
+                                disabled>
+                                <i class="fas fa-clock"></i> Wait
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 40px; border-left: 5px solid var(--secondary-green);">
+                <h3>Need a new test?</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Book a lab appointment or request a home sample
+                    collection.</p>
+                <div style="margin-top: 20px;">
+                    <a href="booking.html" class="btn btn-primary">Schedule New Test</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function downloadReport(filename) {
+            alert('Simulating download of: ' + filename + '\nYour report is being generated and will open in a new tab.');
+            // In a real app, this would be a link to a blob or server file
+        }
+    </script>
+</body>
+
+</html>
